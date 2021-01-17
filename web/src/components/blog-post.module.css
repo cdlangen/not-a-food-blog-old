@@ -8,6 +8,13 @@
   composes: responsiveTitle1 from "./typography.module.css";
 }
 
+.recipeMetrics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 20px;
+}
+
 .mainImage {
   display: block;
   position: relative;
@@ -29,6 +36,7 @@
 .mainImageTextBlock {
   position: absolute;
   top: 20px;
+  bottom: 20px;
   right: 20px;
   background-color: black;
   color: white;

@@ -5,11 +5,14 @@ import { imageUrlFor } from "../lib/image-url";
 import PortableText from "./portableText";
 import Container from "./container";
 import AuthorList from "./author-list";
+import RecipeMetric from "./recipe-metric";
+import { GiCookingPot, GiForkKnifeSpoon } from "react-icons/gi";
+import { RiKnifeFill } from "react-icons/ri";
 
 import styles from "./blog-post.module.css";
 
 function BlogPost(props) {
-  const { _rawBody, authors, categories, title, excerpt, mainImage, publishedAt } = props;
+  const { _rawBody, _rawExcerpt, authors, categories, title, mainImage, publishedAt } = props;
   return (
     <article className={styles.root}>
       {mainImage && mainImage.asset && (
@@ -26,7 +29,12 @@ function BlogPost(props) {
           <div className={styles.mainImageTextBlock}>
             <h1 className={styles.title}>{title}</h1>
             <div className={styles.excerpt}>
-              <PortableText blocks={props._rawExcerpt} />
+              <PortableText blocks={_rawExcerpt} />
+            </div>
+            <div className={styles.recipeMetrics}>
+              <RecipeMetric Icon={RiKnifeFill} text="prep time" quantity="30 min" />
+              <RecipeMetric Icon={GiCookingPot} text="cooktime" quantity="20 min" />
+              <RecipeMetric Icon={GiForkKnifeSpoon} text="servings" quantity="4" />
             </div>
           </div>
         </div>
