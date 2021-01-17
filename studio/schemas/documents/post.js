@@ -63,6 +63,16 @@ export default {
       ]
     },
     {
+      name: 'ingredients',
+      type: 'array',
+      title: 'Ingredients',
+      of: [
+        {
+          type: 'ingredient'
+        }
+      ]
+    },
+    {
       name: 'body',
       type: 'bodyPortableText',
       title: 'Body'
