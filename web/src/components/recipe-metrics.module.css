@@ -3,15 +3,15 @@
   line-height: 1px;
   margin-top: 0px;
   margin-bottom: 0px;
+
+  composes: responsiveMetrics from "./typography.module.css";
 }
 
 .root h1 {
-  line-height: 0px;
   margin-bottom: 15px;
 }
 
 .root h6 {
-  line-height: 0px;
   margin-top: 15px;
   margin-bottom: 0px;
 }
