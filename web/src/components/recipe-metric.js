@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./recipe-metrics.module.css";
+import styles from "./recipe-metric.module.css";
 
 function RecipeMetric(props) {
   const { Icon, text, quantity } = props;
@@ -8,8 +8,8 @@ function RecipeMetric(props) {
       <h1>
         <Icon />
       </h1>
-      <h6>{text}</h6>
-      <h6>{quantity}</h6>
+      <h5>{text}</h5>
+      <h5>{quantity}</h5>
     </div>
   );
 }

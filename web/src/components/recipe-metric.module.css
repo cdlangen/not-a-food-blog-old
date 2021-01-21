@@ -1,0 +1,17 @@
+.root {
+  text-align: center;
+  /* line-height: 1px; */
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+  /* composes: responsiveMetrics from "./typography.module.css"; */
+}
+
+.root h1 {
+  margin: 0px;
+}
+
+.root h5 {
+  margin-top: 0px;
+  margin-bottom: 3px;
+}
