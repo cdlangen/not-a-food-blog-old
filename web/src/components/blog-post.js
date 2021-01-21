@@ -13,30 +13,34 @@ function BlogPost(props) {
   const { _rawBody, _rawExcerpt, title, mainImage } = props;
   return (
     <article className={styles.root}>
-      {mainImage && mainImage.asset && (
-        <div className={styles.mainImage}>
-          <img
-            src={imageUrlFor(buildImageObj(mainImage))
-              .width(1200)
-              .height(Math.floor((9 / 16) * 1200))
-              .fit("crop")
-              .auto("format")
-              .url()}
-            alt={mainImage.alt}
-          />
-          <div className={styles.mainImageTextBlock}>
-            <h1 className={styles.title}>{title}</h1>
+      <div className={styles.recipeSummary}>
+        {mainImage && mainImage.asset && (
+          <div className={styles.mainImage}>
+            <img
+              src={imageUrlFor(buildImageObj(mainImage))
+                .width(1200)
+                .height(Math.floor((9 / 16) * 1200))
+                .fit("crop")
+                .auto("format")
+                .url()}
+              alt={mainImage.alt}
+            />
+          </div>
+        )}
+        <div className={styles.recipeSummaryContentWrapper}>
+          <div className={styles.recipeSummaryContent}>
+            <h1>{title}</h1>
             <div className={styles.excerpt}>
               <PortableText blocks={_rawExcerpt} />
             </div>
-            <div className={styles.recipeMetrics}>
+            <div className={styles.recipeSummaryContentMetrics}>
               <RecipeMetric Icon={RiKnifeFill} text="prep time" quantity="30 min" />
               <RecipeMetric Icon={GiCookingPot} text="cooktime" quantity="20 min" />
               <RecipeMetric Icon={GiForkKnifeSpoon} text="servings" quantity="4" />
             </div>
           </div>
         </div>
-      )}
+      </div>
       <Container>
         <div>
           <div className={styles.mainContent}>
