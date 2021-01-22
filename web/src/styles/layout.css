@@ -1,4 +1,4 @@
-@import './custom-properties.css';
+@import "./custom-properties.css";
 
 html {
   font-family: var(--font-family-sans);
@@ -11,6 +11,11 @@ body {
   background: var(--color-white);
   color: var(--color-black);
   margin: 0;
+
+  @nest & h1, & h2, & h3, & h4, & h5, & h6 {
+    font-weight: 600;
+    font-family: var(--font-family-serif);
+  }
 }
 
 html,

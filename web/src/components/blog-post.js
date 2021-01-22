@@ -30,7 +30,7 @@ function BlogPost(props) {
         <div className={styles.recipeSummaryContentWrapper}>
           <div className={styles.recipeSummaryContent}>
             <h1>{title}</h1>
-            <div className={styles.excerpt}>
+            <div>
               <PortableText blocks={_rawExcerpt} />
             </div>
             <div className={styles.recipeSummaryContentMetrics}>
@@ -44,7 +44,7 @@ function BlogPost(props) {
       <Container>
         <div>
           <div className={styles.mainContent}>
-            <h1 className={styles.title}>{title}</h1>
+            <h1>Instructions</h1>
             {_rawBody && <PortableText blocks={_rawBody} />}
           </div>
         </div>
