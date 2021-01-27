@@ -1,15 +1,16 @@
-@import '../styles/custom-media.css';
-@import '../styles/custom-properties.css';
+@import "../styles/custom-media.css";
+@import "../styles/custom-properties.css";
 
 .root {
   position: relative;
   z-index: 100;
+  background-color: #1c181a;
 }
 
 .wrapper {
   box-sizing: border-box;
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 1000px;
   padding: 1em;
   display: flex;
 
@@ -19,21 +20,36 @@
 }
 
 .branding {
-  font-weight: 600;
+  font-weight: 400;
   flex: 1;
+  font-family: var(--font-family-serif);
+  font-size: 2rem;
 
   @nest & a {
     display: inline-block;
-    padding: 0.5em;
-    color: inherit;
+    padding: 0em;
     text-decoration: none;
+    color: white;
 
-    @media (hover: hover) {
+    /* @media (hover: hover) {
       @nest &:hover {
         color: var(--color-accent);
       }
+    } */
+
+    @nest & b {
+      color: var(--color-accent);
+      font-weight: 1000;
+      font-size: 2.5rem;
     }
   }
+}
+
+.tagLine {
+  color: white;
+  font-family: var(--font-family-sans);
+  font-size: 19px;
+  margin: 0;
 }
 
 .toggleNavButton {
