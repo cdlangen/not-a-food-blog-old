@@ -135,6 +135,33 @@
       max-width: 100%;
     }
   }
+
+  @nest & ol {
+    list-style: none;
+    counter-reset: custom-counter;
+    padding-left: 50px;
+    list-style-position: outside;
+  }
+  @nest & ol li {
+    counter-increment: custom-counter;
+    margin: 1rem 0 2rem 0;
+    position: relative;
+  }
+
+  @nest & ol li::before {
+    content: counter(custom-counter) ". ";
+    color: var(--color-accent);
+    font-weight: bold;
+    font-size: 25px;
+    font-family: var(--font-family-serif);
+    position: absolute;
+    --size: 32px;
+    left: calc(-1 * var(--size) - 10px);
+    line-height: var(--size);
+    width: var(--size);
+    height: var(--size);
+    top: -5px;
+  }
 }
 
 .metaContent {

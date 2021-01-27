@@ -59,6 +59,16 @@ export const query = graphql`
           name
         }
       }
+
+      ingredients {
+        name
+        quantity
+        unit
+      }
+
+      recipeInstructions {
+        text
+      }
     }
   }
 `;

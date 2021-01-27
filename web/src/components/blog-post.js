@@ -10,7 +10,7 @@ import { RiKnifeFill } from "react-icons/ri";
 import styles from "./blog-post.module.css";
 
 function BlogPost(props) {
-  const { _rawBody, _rawExcerpt, title, mainImage } = props;
+  const { _rawBody, _rawExcerpt, title, mainImage, ingredients, recipeInstructions } = props;
   return (
     <article className={styles.root}>
       <div className={styles.recipeSummary}>
@@ -45,7 +45,11 @@ function BlogPost(props) {
         <div>
           <div className={styles.mainContent}>
             <h1>Instructions</h1>
-            {_rawBody && <PortableText blocks={_rawBody} />}
+            <ol>
+              {recipeInstructions.map((value, index) => {
+                return <li key={index}>{value.text}</li>;
+              })}
+            </ol>
           </div>
         </div>
       </Container>

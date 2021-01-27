@@ -73,6 +73,16 @@ export default {
       ]
     },
     {
+      name: 'recipeInstructions',
+      type: 'array',
+      title: 'Instructions',
+      of: [
+        {
+          type: 'recipeInstruction'
+        }
+      ]
+    },
+    {
       name: 'body',
       type: 'bodyPortableText',
       title: 'Body'
