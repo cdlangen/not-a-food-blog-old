@@ -61,9 +61,7 @@ export const query = graphql`
       }
 
       recipeIngredients {
-        name
-        quantity
-        unit
+        text
       }
 
       recipeInstructions {

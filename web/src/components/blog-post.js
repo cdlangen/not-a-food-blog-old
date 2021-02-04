@@ -48,11 +48,7 @@ function BlogPost(props) {
               <h1>Ingredients</h1>
               <ul>
                 {recipeIngredients.map((value, index) => {
-                  return (
-                    <li key={index}>
-                      {value.quantity} {value.unit} {value.name}
-                    </li>
-                  );
+                  return <li key={index}>{value.text}</li>;
                 })}
               </ul>
             </div>

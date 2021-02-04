@@ -68,7 +68,7 @@ export default {
       title: 'Ingredients',
       of: [
         {
-          type: 'ingredient'
+          type: 'recipeIngredient'
         }
       ]
     },
