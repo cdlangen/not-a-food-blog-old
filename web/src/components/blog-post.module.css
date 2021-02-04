@@ -43,7 +43,7 @@
   @nest & h1 {
     font-size: 60px;
     font-weight: 800;
-    color: var(--color-light-accent);
+    color: var(--color-accent);
   }
 }
 
@@ -53,7 +53,7 @@
   justify-content: center;
   column-gap: 20px;
   padding-top: 30px;
-  color: var(--color-light-accent);
+  color: var(--color-accent);
 }
 
 .mainImage {
@@ -108,7 +108,7 @@
   padding: 30px;
 
   @nest & h1 {
-    font-size: 60px;
+    font-size: 25px;
     font-weight: 800;
     color: var(--color-accent);
   }
@@ -135,6 +135,41 @@
       max-width: 100%;
     }
   }
+}
+
+.recipeIngredients {
+  grid-area: recipeIngredients;
+
+  @nest & ul {
+    list-style-type: none;
+    counter-reset: custom-counter;
+    padding-left: 50px;
+    list-style-position: outside;
+  }
+
+  @nest & ul li {
+    margin: 1rem 0 2rem 0;
+    position: relative;
+  }
+
+  @nest & ul li::before {
+    content: "\2022";
+    color: var(--color-accent);
+    font-weight: bold;
+    font-size: 30px;
+    font-family: var(--font-family-serif);
+    position: absolute;
+    --size: 25px;
+    left: calc(-1 * var(--size) - 10px);
+    line-height: var(--size);
+    width: var(--size);
+    height: var(--size);
+    /* top: -25 px; */
+  }
+}
+
+.recipeInstructions {
+  grid-area: recipeInstructions;
 
   @nest & ol {
     list-style: none;
@@ -142,6 +177,7 @@
     padding-left: 50px;
     list-style-position: outside;
   }
+
   @nest & ol li {
     counter-increment: custom-counter;
     margin: 1rem 0 2rem 0;
@@ -152,15 +188,25 @@
     content: counter(custom-counter) ". ";
     color: var(--color-accent);
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     font-family: var(--font-family-serif);
     position: absolute;
-    --size: 32px;
+    --size: 25px;
     left: calc(-1 * var(--size) - 10px);
     line-height: var(--size);
     width: var(--size);
     height: var(--size);
-    top: -5px;
+    /* top: -25 px; */
+  }
+}
+
+.recipeContainer {
+  @media (--media-min-medium) {
+    display: grid;
+    grid-template-areas: "recipeIngredients recipeInstructions recipeInstructions recipeInstructions recipeInstructions";
+    grid-gap: 50px;
+    /* background-color: #2196f3; */
+    padding: 10px;
   }
 }
 

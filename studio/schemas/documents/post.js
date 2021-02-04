@@ -63,7 +63,7 @@ export default {
       ]
     },
     {
-      name: 'ingredients',
+      name: 'recipeIngredients',
       type: 'array',
       title: 'Ingredients',
       of: [

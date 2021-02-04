@@ -60,7 +60,7 @@ export const query = graphql`
         }
       }
 
-      ingredients {
+      recipeIngredients {
         name
         quantity
         unit
