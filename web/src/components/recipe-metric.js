@@ -8,8 +8,8 @@ function RecipeMetric(props) {
       <h1>
         <Icon />
       </h1>
-      <h5>{text}</h5>
-      <h5>{quantity}</h5>
+      <h4>{text}</h4>
+      <h4>{quantity}</h4>
     </div>
   );
 }
