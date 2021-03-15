@@ -7,7 +7,7 @@ import RecipeMetric from "./recipe-metric";
 import { GiCookingPot, GiForkKnifeSpoon } from "react-icons/gi";
 import { RiKnifeFill } from "react-icons/ri";
 
-import styles from "./blog-post.module.css";
+import styles from "./recipe.module.css";
 
 function BlogPost(props) {
   const {
