@@ -57,6 +57,16 @@ export default {
         })
     },
     {
+      name: 'recipeNotes',
+      type: 'array',
+      title: 'Notes',
+      of: [
+        {
+          type: 'string'
+        }
+      ]
+    },
+    {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',

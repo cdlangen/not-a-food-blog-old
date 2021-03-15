@@ -114,6 +114,12 @@
     color: var(--color-accent);
   }
 
+  @nest & h2 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-accent);
+  }
+
   @nest & a {
     color: var(--color-accent);
 
@@ -140,33 +146,12 @@
 
 .recipeIngredients {
   grid-area: recipeIngredients;
+}
 
-  @nest & ul {
-    list-style-type: none;
-    counter-reset: custom-counter;
-    padding-left: 50px;
-    list-style-position: outside;
-  }
-
-  @nest & ul li {
-    margin: 1rem 0 2rem 0;
-    position: relative;
-  }
-
-  @nest & ul li::before {
-    content: "\2022";
-    color: var(--color-accent);
-    font-weight: bold;
-    font-size: 30px;
-    font-family: var(--font-family-serif);
-    position: absolute;
-    --size: 25px;
-    left: calc(-1 * var(--size) - 10px);
-    line-height: var(--size);
-    width: var(--size);
-    height: var(--size);
-    /* top: -25 px; */
-  }
+.recipeNotes {
+  border-style: double;
+  border-color: var(--color-accent);
+  padding: 0 20px 0 20px;
 }
 
 .recipeInstructions {
@@ -175,7 +160,7 @@
   @nest & ol {
     list-style: none;
     counter-reset: custom-counter;
-    padding-left: 50px;
+    padding-left: 40px;
     list-style-position: outside;
   }
 
@@ -208,6 +193,33 @@
     grid-gap: 50px;
     /* background-color: #2196f3; */
     padding: 10px;
+  }
+
+  @nest & ul {
+    list-style-type: none;
+    counter-reset: custom-counter;
+    padding-left: 40px;
+    list-style-position: outside;
+  }
+
+  @nest & ul li {
+    margin: 1rem 0 2rem 0;
+    position: relative;
+  }
+
+  @nest & ul li::before {
+    content: "\2022";
+    color: var(--color-accent);
+    font-weight: bold;
+    font-size: 30px;
+    font-family: var(--font-family-serif);
+    position: absolute;
+    --size: 25px;
+    left: calc(-1 * var(--size) - 10px);
+    line-height: var(--size);
+    width: var(--size);
+    height: var(--size);
+    /* top: -25 px; */
   }
 }
 
