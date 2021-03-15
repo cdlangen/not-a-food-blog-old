@@ -19,7 +19,7 @@ export default {
                 },
                 {
                   buildHookId: '6000b2d21a76d84d5ff1bfc1',
-                  title: 'Blog Website',
+                  title: 'Recipe Website',
                   name: 'sanity-gatsby-recipe-site',
                   apiId: '74696695-1dc8-469e-b95e-afe1be9e4dae'
                 }
@@ -33,14 +33,18 @@ export default {
             value: 'https://github.com/cdlangen/sanity-gatsby-recipe-site',
             category: 'Code'
           },
-          { title: 'Frontend', value: 'https://sanity-gatsby-recipe-site.netlify.app', category: 'apps' }
+          {
+            title: 'Frontend',
+            value: 'https://sanity-gatsby-recipe-site.netlify.app',
+            category: 'apps'
+          }
         ]
       }
     },
     { name: 'project-users', layout: { height: 'auto' } },
     {
       name: 'document-list',
-      options: { title: 'Recent blog posts', order: '_createdAt desc', types: ['post'] },
+      options: { title: 'Recent recipes', order: '_createdAt desc', types: ['recipe'] },
       layout: { width: 'medium' }
     }
   ]

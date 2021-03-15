@@ -9,7 +9,7 @@ import styles from './IframePreview.module.css'
  * https://www.sanity.io/blog/evolve-authoring-experiences-with-views-and-split-panes
  */
 
-const assemblePostUrl = ({ displayed, options }) => {
+const assembleRecipeUrl = ({ displayed, options }) => {
   const { slug, publishedAt } = displayed
   const { previewURL } = options
   if (!slug || !previewURL) {
@@ -18,7 +18,7 @@ const assemblePostUrl = ({ displayed, options }) => {
   }
   const dateSegment = format(publishedAt, 'YYYY/MM')
   const path = `/${dateSegment}/${slug.current}/`
-  return `${previewURL}/blog${path}`
+  return `${previewURL}/recipes${path}`
 }
 
 const IframePreview = props => {
@@ -33,7 +33,7 @@ const IframePreview = props => {
     )
   }
 
-  const url = assemblePostUrl({ displayed, options })
+  const url = assembleRecipeUrl({ displayed, options })
 
   if (!url) {
     return (

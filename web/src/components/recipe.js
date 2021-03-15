@@ -9,9 +9,8 @@ import { RiKnifeFill } from "react-icons/ri";
 
 import styles from "./recipe.module.css";
 
-function BlogPost(props) {
+function Recipe(props) {
   const {
-    _rawBody,
     _rawExcerpt,
     title,
     mainImage,
@@ -86,4 +85,4 @@ function BlogPost(props) {
   );
 }
 
-export default BlogPost;
+export default Recipe;

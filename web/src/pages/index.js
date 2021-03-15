@@ -5,7 +5,7 @@ import {
   filterOutDocsWithoutSlugs,
   filterOutDocsPublishedInTheFuture,
 } from "../lib/helpers";
-import BlogPostPreviewList from "../components/recipe-preview-list";
+import RecipePreviewList from "../components/recipe-preview-list";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
@@ -40,7 +40,7 @@ export const query = graphql`
       description
       keywords
     }
-    posts: allSanityPost(
+    recipes: allSanityRecipe(
       limit: 6
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
@@ -76,8 +76,8 @@ const IndexPage = (props) => {
   }
 
   const site = (data || {}).site;
-  const postNodes = (data || {}).posts
-    ? mapEdgesToNodes(data.posts)
+  const recipeNodes = (data || {}).recipes
+    ? mapEdgesToNodes(data.recipes)
         .filter(filterOutDocsWithoutSlugs)
         .filter(filterOutDocsPublishedInTheFuture)
     : [];
@@ -93,10 +93,10 @@ const IndexPage = (props) => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <h1 hidden>Welcome to {site.title}</h1>
-        {postNodes && (
-          <BlogPostPreviewList
-            title="Latest blog posts"
-            nodes={postNodes}
+        {recipeNodes && (
+          <RecipePreviewList
+            title="Latest recipes"
+            nodes={recipeNodes}
             browseMoreHref="/archive/"
           />
         )}

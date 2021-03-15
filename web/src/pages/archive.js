@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { mapEdgesToNodes } from "../lib/helpers";
-import BlogPostPreviewGrid from "../components/recipe-preview-grid";
+import RecipePreviewGrid from "../components/recipe-preview-grid";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
 import SEO from "../components/seo";
@@ -11,7 +11,7 @@ import { responsiveTitle1 } from "../components/typography.module.css";
 
 export const query = graphql`
   query ArchivePageQuery {
-    posts: allSanityPost(
+    recipes: allSanityRecipe(
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
     ) {
@@ -45,14 +45,14 @@ const ArchivePage = (props) => {
     );
   }
 
-  const postNodes = data && data.posts && mapEdgesToNodes(data.posts);
+  const recipeNodes = data && data.recipes && mapEdgesToNodes(data.recipes);
 
   return (
     <Layout>
       <SEO title="Archive" />
       <Container>
         <h1 className={responsiveTitle1}>Archive</h1>
-        {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
+        {recipeNodes && recipeNodes.length > 0 && <RecipePreviewGrid nodes={recipeNodes} />}
       </Container>
     </Layout>
   );

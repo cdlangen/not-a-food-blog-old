@@ -2,20 +2,20 @@ import React from "react";
 import { graphql } from "gatsby";
 import Container from "../components/container";
 import GraphQLErrorList from "../components/graphql-error-list";
-import BlogPost from "../components/recipe";
+import Recipe from "../components/recipe";
 import SEO from "../components/seo";
 import Layout from "../containers/layout";
 import { toPlainText } from "../lib/helpers";
 
 export const query = graphql`
-  query BlogPostTemplateQuery($id: String!) {
+  query RecipeTemplateQuery($id: String!) {
     site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      defaultPostImage {
+      defaultRecipeImage {
         ...SanityImage
         alt
       }
     }
-    post: sanityPost(id: { eq: $id }) {
+    recipe: sanityRecipe(id: { eq: $id }) {
       id
       publishedAt
       categories {
@@ -31,7 +31,6 @@ export const query = graphql`
         current
       }
       _rawExcerpt(resolveReferences: { maxDepth: 5 })
-      _rawBody(resolveReferences: { maxDepth: 5 })
       authors {
         _key
         author {
@@ -72,21 +71,21 @@ export const query = graphql`
   }
 `;
 
-const BlogPostTemplate = (props) => {
+const RecipeTemplate = (props) => {
   const { data, errors } = props;
-  const post = data && data.post;
-  if (!(post.mainImage && post.mainImage.asset)) {
-    post.mainImage = data.site.defaultPostImage;
+  const recipe = data && data.recipe;
+  if (!(recipe.mainImage && recipe.mainImage.asset)) {
+    recipe.mainImage = data.site.defaultRecipeImage;
   }
 
   return (
     <Layout>
       {errors && <SEO title="GraphQL Error" />}
-      {post && (
+      {recipe && (
         <SEO
-          title={post.title || "Untitled"}
-          description={toPlainText(post._rawExcerpt)}
-          image={post.mainImage}
+          title={recipe.title || "Untitled"}
+          description={toPlainText(recipe._rawExcerpt)}
+          image={recipe.mainImage}
         />
       )}
 
@@ -96,9 +95,9 @@ const BlogPostTemplate = (props) => {
         </Container>
       )}
 
-      {post && <BlogPost {...post} />}
+      {recipe && <Recipe {...recipe} />}
     </Layout>
   );
 };
 
-export default BlogPostTemplate;
+export default RecipeTemplate;

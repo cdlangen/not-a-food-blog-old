@@ -13,13 +13,13 @@ export default {
       name: 'description',
       type: 'text',
       title: 'Description',
-      description: 'Describe your blog for search engines and social media.'
+      description: 'Describe your site for search engines and social media.'
     },
     {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',
-      description: 'Add keywords that describes your blog.',
+      description: 'Add keywords that describes your site.',
       of: [{ type: 'string' }],
       options: {
         layout: 'tags'
@@ -33,10 +33,10 @@ export default {
       to: [{ type: 'author' }]
     },
     {
-      name: 'defaultPostImage',
+      name: 'defaultRecipeImage',
       type: 'mainImage',
-      description: 'Image to show in posts when no image is specified.',
-      title: 'Default post image',
+      description: 'Image to show in recipes when no image is specified.',
+      title: 'Default recipe image',
       validation: Rule => Rule.required()
     }
   ]
