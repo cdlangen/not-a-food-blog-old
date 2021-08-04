@@ -15,7 +15,7 @@ function RecipeHeader(props) {
     mainImage &&
       mainImage.asset &&
       imageUrlFor(buildImageObj(mainImage))
-        .width(1200)
+        .width(1500)
         .height(Math.floor((9 / 16) * 1200))
         .fit("crop")
         .auto("format")

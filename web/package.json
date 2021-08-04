@@ -11,7 +11,8 @@
     "format": "prettier-eslint --write \"**/*.js\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -41,7 +42,8 @@
     "prettier-eslint-cli": "^4.7.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "chromatic": "^5.10.0-canary.0"
   },
   "dependencies": {
     "gatsby-image": "^2.0.41"
