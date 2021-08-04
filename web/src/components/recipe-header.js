@@ -12,12 +12,14 @@ import styles from "./recipe-header.module.css";
 function RecipeHeader(props) {
   const { _rawExcerpt, title, mainImage } = props;
   const [imgurl] = useState(
-    imageUrlFor(buildImageObj(mainImage))
-      .width(1200)
-      .height(Math.floor((9 / 16) * 1200))
-      .fit("crop")
-      .auto("format")
-      .url()
+    mainImage &&
+      mainImage.asset &&
+      imageUrlFor(buildImageObj(mainImage))
+        .width(1200)
+        .height(Math.floor((9 / 16) * 1200))
+        .fit("crop")
+        .auto("format")
+        .url()
   );
   return (
     <div

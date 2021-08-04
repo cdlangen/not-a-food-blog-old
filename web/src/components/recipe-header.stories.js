@@ -10,9 +10,9 @@ export default {
 
 const Template = (args) => <RecipeHeader {...args} />;
 
-export const Header = Template.bind({});
+export const ImageExists = Template.bind({});
 
-Header.args = {
+ImageExists.args = {
   mainImage: {
     crop: null,
     hotspot: null,
@@ -42,3 +42,13 @@ Header.args = {
     },
   ],
 };
+
+export const NoMainImageAsset = Template.bind({});
+
+NoMainImageAsset.args = JSON.parse(JSON.stringify(ImageExists.args));
+delete NoMainImageAsset.args.mainImage.asset;
+
+export const NoMainImage = Template.bind({});
+
+NoMainImage.args = JSON.parse(JSON.stringify(ImageExists.args));
+delete NoMainImage.args.mainImage;
