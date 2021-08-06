@@ -1,7 +1,7 @@
 # .github/workflows/chromatic.yml
 
 # Workflow name
-name: "Chromatic"
+name: 'Chromatic'
 
 # Event for the workflow
 on: push
@@ -9,17 +9,19 @@ on: push
 # List of jobs
 jobs:
   chromatic-deployment:
-    env:
-      working-directory: ./web
     # Operating System
     runs-on: ubuntu-latest
     # Job steps
     steps:
       - uses: actions/checkout@v1
       - name: Install dependencies
-        run: npm install
-        working-directory: ${{env.working-directory}}
+        run: yarn
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
-        working-directory: ${{env.working-directory}}
-        run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        uses: chromaui/action@v1
+        # Chromatic GitHub Action options
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: ./web
