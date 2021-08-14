@@ -6,6 +6,7 @@ import Container from "./container";
 import RecipeMetric from "./recipe-metric";
 import { GiCookingPot, GiForkKnifeSpoon } from "react-icons/gi";
 import { RiKnifeFill } from "react-icons/ri";
+import RecipeHeader from "./recipe-header";
 
 import styles from "./recipe.module.css";
 
@@ -20,34 +21,7 @@ function Recipe(props) {
   } = props;
   return (
     <article className={styles.root}>
-      <div className={styles.recipeSummary}>
-        {mainImage && mainImage.asset && (
-          <div className={styles.mainImage}>
-            <img
-              src={imageUrlFor(buildImageObj(mainImage))
-                .width(1200)
-                .height(Math.floor((9 / 16) * 1200))
-                .fit("crop")
-                .auto("format")
-                .url()}
-              alt={mainImage.alt}
-            />
-          </div>
-        )}
-        <div className={styles.recipeSummaryContentWrapper}>
-          <div className={styles.recipeSummaryContent}>
-            <h1>{title}</h1>
-            <div>
-              <PortableText blocks={_rawExcerpt} />
-            </div>
-            <div className={styles.recipeSummaryContentMetrics}>
-              <RecipeMetric Icon={RiKnifeFill} text="prep time" quantity="30 min" />
-              <RecipeMetric Icon={GiCookingPot} text="cooktime" quantity="20 min" />
-              <RecipeMetric Icon={GiForkKnifeSpoon} text="servings" quantity="4" />
-            </div>
-          </div>
-        </div>
-      </div>
+      <RecipeHeader _rawExcerpt={_rawExcerpt} title={title} mainImage={mainImage}></RecipeHeader>
       <Container>
         <div className={styles.mainContent}>
           <div className={styles.recipeContainer}>
