@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "format": "prettier-eslint --write \"**/*.js\" \"!.cache/**\" \"!node_modules/**\" \"!public/**\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6060 -c .storybook watch-css -s ./src",
     "build-storybook": "build-storybook",
     "chromatic": "chromatic --exit-zero-on-changes"
   },
